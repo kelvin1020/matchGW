@@ -1,0 +1,8 @@
+dependencies:
+  - python=3
+  - pip:
+    - matplotlib
+    - numpy
+    - scipy
+    - lalsuite
+    - pycbc
