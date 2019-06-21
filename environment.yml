@@ -1,8 +1,14 @@
+name: matchGW
+channels:
+  - conda-forge
 dependencies:
   - python=3
+  - numpy
+  - pip
   - pip:
     - matplotlib
-    - numpy
+    - moviepy
+    - astropy
     - scipy
     - lalsuite
     - pycbc
