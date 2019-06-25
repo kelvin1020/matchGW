@@ -1,5 +1,6 @@
 # matchGW
-Matched filtering by pyCBC
+Matched filtering by pyCBC, to be updated
+
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kelvin1020/matchGW/master)
 
