@@ -9,14 +9,14 @@ Compute the overlap of two signals
 """
 
 ##设置环境变量####################################################################################################################################################################################################################################################################################
-import sys
-import os 
-path_exe = ((sys.path[0]).split(os.sep))#导入当前目录
-path_exe.pop() 
-path_exe.pop()                   
-path_program = ((os.sep).join(path_exe)) 
-sys.path.append(path_program)           #将程序文件夹添加到环境变量
-path_now = sys.path[0]                  #当前目录
+#import sys
+#import os 
+#path_exe = ((sys.path[0]).split(os.sep))#导入当前目录
+#path_exe.pop() 
+#path_exe.pop()                   
+#path_program = ((os.sep).join(path_exe)) 
+#sys.path.append(path_program)           #将程序文件夹添加到环境变量
+#path_now = sys.path[0]                  #当前目录
 ######################################################################################################################################################################################################################################################################################
 import numpy as np  #import numpy, and name it as np
 from scipy.interpolate import interp1d # interpolate 1-D
