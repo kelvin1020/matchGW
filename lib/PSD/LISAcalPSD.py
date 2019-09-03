@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jun 20 21:00:00 2019
@@ -30,17 +30,17 @@ def LISAcalPSD1(freqVec):
 		 Rev. D 75, 024005 (2007).
 	'''
 
-	TAU = 50/3
+	TAU = 50.0/3.0
 	UTRANS = 0.25
 	
 	num = len(freqVec)
 
-	u = 2 * np.pi * TAU * freqVec
+	u = 2.0 * np.pi * TAU * freqVec
 
-	r = (1/ u**2) * ( (1 + np.cos(u)**2) * (1/3 - 2/u**2) + np.sin(u)**2 + 4*np.sin(u)*np.cos(u)/(u**3) )
+	r = (1.0/ u**2) * ( (1.0 + np.cos(u)**2.0) * (1.0/3.0 - 2.0/u**2) + np.sin(u)**2.0 + 4.0*np.sin(u)*np.cos(u)/(u**3.0) )
 
-	psd1 = (8.08e-48 / ((2*np.pi*freqVec)**4) + 5.52e-41)
-	psd2 = (2.88e-48 / ((2*np.pi*freqVec)**4) + 5.52e-41) / r
+	psd1 = (8.08e-48 / ((2.0*np.pi*freqVec)**4.0) + 5.52e-41)
+	psd2 = (2.88e-48 / ((2.0*np.pi*freqVec)**4.0) + 5.52e-41) / r
 
 	shadow1 =  np.zeros(num)
 	shadow1[u < UTRANS] = 1
@@ -74,14 +74,14 @@ def LISAcalPSD2(freqVec):
 	F0 = 1e-3                         #unit frequency(Hz)
 
 	xVec = freqVec / F0
-	psd = ((xVec/10)**(-4) + 173 + xVec**2) * S0 
+	psd = ((xVec/10.0)**(-4.0) + 173.0 + xVec**2.0) * S0 
 	return psd
 
 
 if __name__ == '__main__':
 	F0 = 1e-3                         #unit frequency(Hz)
 	num = 50
-	xVec = 10**np.linspace(-2, 3, num)
+	xVec = 10.0**np.linspace(-2, 3, num)
 	freqVec = xVec * F0
 	psd1 = LISAcalPSD1(freqVec)
 	psd2 = LISAcalPSD2(freqVec)
