@@ -15,4 +15,5 @@ These are my codes!
 
 from lib.waveform.waveform import *
 from lib.waveform.peters import *
+from lib.waveform.teukolsky import *
 from lib.waveform.cosmoModel import *
