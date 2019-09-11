@@ -13,11 +13,11 @@ Matched filtering by pyCBC, please click --> index.ipynb for guide
  ```shell
  sh set_intel_env.sh
  ```
- to activate the intel compile enviroment
+ to activate the intel compile enviroment and restart the terminal
  
  注意：要使用Teukolsky 波形， 请确认您安装了英特尔的ifort编译器，对于引力波与相对论基本天文学课题组的成员，请在服务器上执行
  
   ```shell
  sh set_intel_env.sh
  ```
- 激活英特尔编译环境
+ 激活英特尔编译环境并重启终端
