@@ -12,8 +12,11 @@ The power spectual density(PSD) function of LISA
 import numpy as np
 # np.seterr(divide='ignore', invalid='ignore') #divide zero problem
 
+
 def LISAcalPSD1(freqVec):
     '''
+        Improvements, updated on July 2020, Shucheng Yang
+
         The power spectual density(PSD) function2 of LISA 
         Shucheng Yang, Jun 2019
         Parameters
@@ -29,10 +32,10 @@ def LISAcalPSD1(freqVec):
          gravitational waveforms for a test-body orbiting a Kerr black hole. Phys.
          Rev. D 75, 024005 (2007).
     '''
-    #remove 0
+    # remove 0
     if (freqVec[0] == 0):
         freqVec[0] = 1e-30
-    #
+    
     
     TAU = 50.0/3.0
     UTRANS = 0.25
@@ -42,18 +45,13 @@ def LISAcalPSD1(freqVec):
     u = 2.0 * np.pi * TAU * freqVec
     r = (1.0/ u**2) * ( (1.0 + np.cos(u)**2.0) * (1.0/3.0 - 2.0/u**2) + np.sin(u)**2.0 + 4.0*np.sin(u)*np.cos(u)/(u**3.0) )
 
-    psd1 = (8.08e-48 / ((2.0*np.pi*freqVec)**4.0) + 5.52e-41)
-    psd2 = (2.88e-48 / ((2.0*np.pi*freqVec)**4.0) + 5.52e-41) / r
     
-    shadow1 =  np.zeros(num)
-    shadow1[u < UTRANS] = 1
+    psd1 = (8.08e-48 / ((2.0*np.pi*freqVec[u < UTRANS])**4.0) + 5.52e-41)
+    
+    psd2 = (2.88e-48 / ((2.0*np.pi*freqVec[u >= UTRANS])**4.0) + 5.52e-41) / r[u >= UTRANS]
+    
 
-    shadow2 = np.zeros(num)
-    shadow2[u >= UTRANS] = 1
-
-    psd = psd1 * shadow1 + psd2 * shadow2
-
-    return psd
+    return np.hstack([psd1, psd2])
 
 
 def LISAcalPSD2(freqVec):
