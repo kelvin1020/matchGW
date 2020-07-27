@@ -15,7 +15,7 @@ import numpy as np
 def DECIGOcalPSD(freqVec):
     '''
         The power spectual density(PSD) function2 of LISA 
-        Shucheng Yang, Jun 2019
+        Shucheng Yang, July 2020
         Parameters
         ----------
         freqVec : frequency Vector, numpy array
